@@ -1,0 +1,20 @@
+{
+  "name": "sandbox",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rcpeng34/sandbox",
+  "authors": [
+    "rcpeng34 <rcpeng@gmail.com>"
+  ],
+  "description": "sandbox for javascipt fiddling",
+  "keywords": [
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
