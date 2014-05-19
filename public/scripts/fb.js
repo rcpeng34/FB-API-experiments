@@ -3,7 +3,8 @@ define(['facebook'], function(){
   FB.init({
     appId : '711138455590961',
   });
-  // logs in and begins making api calls
+  // logs in and begins making api calls to paths indicated in apiCalls
+  // this is for exploratory purposes
   FB.login(function(response){
     if (response.authResponse) { // response successful, do stuff
 
