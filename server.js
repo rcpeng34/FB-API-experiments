@@ -15,20 +15,20 @@ var server = app.listen(httpport, function() {
 
 // Serve up content from public directory
 app.use('/public', express.static(__dirname + '/public'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+// app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 
 // get request handlers
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/html/index.html');
 });
-app.get('/bower_components/bootstrap/dist/css/bootstrap.min.css', function(req, res){
-  console.log('trying to get bootstrap.min.css');
-  res.sendfile(__dirname + '/bower_components/bootstrap/dist/css/bootstrap.min.css');
-});
-app.get('/bower_components/bootstrap/dist/js/bootstrap.min.js', function(req, res){
-  res.sendfile(__dirname + '/bower_components/bootstrap/dist/js/bootstrap.min.js');
-  console.log('trying to get bootstrap.min.js');
-});
+// app.get('/bower_components/bootstrap/dist/css/bootstrap.min.css', function(req, res){
+//   console.log('trying to get bootstrap.min.css');
+//   res.sendfile(__dirname + '/bower_components/bootstrap/dist/css/bootstrap.min.css');
+// });
+// app.get('/bower_components/bootstrap/dist/js/bootstrap.min.js', function(req, res){
+//   console.log('trying to get bootstrap.min.js');
+//   res.sendfile(__dirname + '/bower_components/bootstrap/dist/js/bootstrap.min.js');
+// });
 
 //****************** Begin FB graph stuff ***********//
