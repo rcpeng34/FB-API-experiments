@@ -15,7 +15,7 @@ var server = app.listen(httpport, function() {
 
 // Serve up content from public directory
 app.use('/public', express.static(__dirname + '/public'));
-// app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 
 // get request handlers
