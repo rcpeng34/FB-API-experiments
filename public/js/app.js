@@ -1,1 +1,0 @@
-console.log('from inside /public/js/app.js');

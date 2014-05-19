@@ -4,7 +4,7 @@ var express = require ('express'),
     app = require(__dirname + '/app/app.js')
 
 var app = express();
-var httpport = 3005;
+var httpport = process.env.port || 3005;
 // var httpsport = 4001;
 
 var server = app.listen(httpport, function() {
@@ -20,3 +20,7 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/html/index.html');
 });
+
+//****************** Begin FB graph stuff ***********//
+
+var fbgraph = require ('fbgraph');
