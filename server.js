@@ -10,6 +10,7 @@ var httpport = process.env.port || 3005;
 
 var server = app.listen(httpport, function() {
     console.log('Listening on port %d', '|', server.address().port, '|' + typeof(server.address().port));
+    console.log('process.env.port', process.env.port);
 });
 
 // Serve up content from public directory
@@ -21,10 +22,10 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/html/index.html');
 });
-app.get('bower_components/bootstrap/dist/css/bootstrap.min.css', function(req, res){
+app.get('/bower_components/bootstrap/dist/css/bootstrap.min.css', function(req, res){
   res.sendfile(__dirname + '/bower_components/bootstrap/dist/css/bootstrap.min.css');
 });
-app.get('bower_components/bootstrap/dist/js/bootstrap.min.js', function(req, res){
+app.get('/bower_components/bootstrap/dist/js/bootstrap.min.js', function(req, res){
   res.sendfile(__dirname + '/bower_components/bootstrap/dist/js/bootstrap.min.js');
 });
 
