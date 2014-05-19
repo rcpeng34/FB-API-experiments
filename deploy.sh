@@ -1,4 +1,5 @@
 #!/bin/bash
+# Testing out script with github autodeploy
 
 # ----------------------
 # KUDU Deployment Script
