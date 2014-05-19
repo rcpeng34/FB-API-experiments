@@ -14,4 +14,4 @@ require.config({
     'facebook': '//connect.facebook.net/en_US/all'
   }
 });
-require(['fb']);
+// require(['fb']);

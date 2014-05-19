@@ -1,7 +1,6 @@
 var express = require ('express'), 
     http    = require ('http'), 
     https   = require('https'),
-    fbgraph = require ('fbgraph'),
     app = require(__dirname + '/app/app.js');
 
 var app = express();
@@ -22,13 +21,3 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/html/index.html');
 });
-// app.get('/bower_components/bootstrap/dist/css/bootstrap.min.css', function(req, res){
-//   console.log('trying to get bootstrap.min.css');
-//   res.sendfile(__dirname + '/bower_components/bootstrap/dist/css/bootstrap.min.css');
-// });
-// app.get('/bower_components/bootstrap/dist/js/bootstrap.min.js', function(req, res){
-//   console.log('trying to get bootstrap.min.js');
-//   res.sendfile(__dirname + '/bower_components/bootstrap/dist/js/bootstrap.min.js');
-// });
-
-//****************** Begin FB graph stuff ***********//
