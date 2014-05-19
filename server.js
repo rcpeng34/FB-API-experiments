@@ -23,10 +23,12 @@ app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/html/index.html');
 });
 app.get('/bower_components/bootstrap/dist/css/bootstrap.min.css', function(req, res){
+  console.log('trying to get bootstrap.min.css');
   res.sendfile(__dirname + '/bower_components/bootstrap/dist/css/bootstrap.min.css');
 });
 app.get('/bower_components/bootstrap/dist/js/bootstrap.min.js', function(req, res){
   res.sendfile(__dirname + '/bower_components/bootstrap/dist/js/bootstrap.min.js');
+  console.log('trying to get bootstrap.min.js');
 });
 
 //****************** Begin FB graph stuff ***********//
