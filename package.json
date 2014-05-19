@@ -18,5 +18,7 @@
     "github": "^0.1.16",
     "http": "0.0.0",
     "fbgraph": "^0.2.10"
-  }
+  },
+  "scripts": { "postinstall": "bower install"}
 }
+
