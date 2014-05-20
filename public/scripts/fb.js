@@ -1,3 +1,6 @@
+
+
+
 define(['facebook'], function(){
   // initializes fb call
   FB.init({
@@ -21,12 +24,17 @@ define(['facebook'], function(){
   // }, {scope: ['user_location', 'user_photos', 'user_status', 'user_tagged_places', 'read_stream']}); // define permissions requested of the login
 
   // Goal: store all status updates
+  // Note: statuses are limited to last 100, I don't know why
   FB.login(function(response){
     if (response.authResponse){
-      FB.api('/me/statuses?limit=200', function(response){
+      FB.api('/me/statuses?limit=100', function(response){
         console.log(response);
         console.log('////////////////////////////////// paging');
-        console.log(response.paging.next);
+        console.log('paging|', response.paging);
+        console.log('next|', response.paging.next);
+        console.log('previous|', response.paging.previous);
+        // the call below will get the next page, however as mentioned above, the call is limited to 100
+        // $.ajax({url: response.paging.next, complete: function(res) {console.log(res.responseText);}});
       });
     } else {
       console.log('User cancelled login or did not fully authorize.');
