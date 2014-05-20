@@ -5,10 +5,10 @@ require(['public/scripts/jqcloud-1.0.4.js', function(){
   console.log('async call complete for jqcloud');
 }]);
 
-//require fbsoundcloud
-// require(['public/scripts/fbsoundcloud.js', function(){
-//   console.log('async call complete for fbsoundcloud');
-// }]);
+//require fbstatuscloud
+require(['public/scripts/fbstatuscloud.js', function(){
+  console.log('async call complete for fbstatuscloud');
+}]);
 
 //require fbselfieratio
 // require(['public/scripts/fbselfieratio.js', function(){
@@ -16,9 +16,9 @@ require(['public/scripts/jqcloud-1.0.4.js', function(){
 // }]);
 
 //require fblocationmap
-require(['public/scripts/fblocationmap.js', function(){
-  console.log('async call complete for fblocationmap');
-}]);
+// require(['public/scripts/fblocationmap.js', function(){
+//   console.log('async call complete for fblocationmap');
+// }]);
 
 require.config({
   shim: {
