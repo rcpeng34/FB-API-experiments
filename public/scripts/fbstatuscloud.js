@@ -42,7 +42,7 @@ define(['facebook'], function(){
           var browserWidth = $('#firstrow').width();
           $('#wordcloud').jQCloud(window.weightedStatusArray, {
             width: browserWidth,
-            height: browserWidth/2
+            height: Math.min(browserWidth/2, 700)
           });
         });
       });
