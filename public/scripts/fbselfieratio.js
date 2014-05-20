@@ -10,6 +10,15 @@ define(['facebook'], function(){
   });
   FB.login(function(response){
     if(response.authResponse){
+      // if username is undefined, set it
+      if(!username){
+        FB.api('/me', function(res){
+          username = res.name;
+          console.log('username', username);
+        });
+      }
+      // do not nest the api calls because even if you should nest the callbacks or use promisify...
+      // the api call below is much slower: 400 photo objects vs in username.
       FB.api('/me/photos?limit=400', function(res){
         photoArray.push(res.data);
         // with more time, this is where to begin logic to grab data from pagination
