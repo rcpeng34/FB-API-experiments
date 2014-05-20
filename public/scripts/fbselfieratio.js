@@ -39,6 +39,28 @@ define(['facebook'], function(){
           }
         }
         console.log('Photographer count is complete');
+
+        // set text for the graph
+        $('#outerText').append(window.photosByOthers + window.photosByYou + ' photos');
+        $('#leftBar .barText').append(window.photosByYou + ' photos of yourself');
+        $('#rightBar .barText').append(window.photosByOthers + ' photos of you');
+
+        // set the graph to the proper lengths, the larger bar will be left untouched
+        // set the other bar in relation to larger bar (width: 50%)
+        if (window.photosByYou >= window.photosByOthers) { // left bar should be greater
+          // leave left bar alone, set right bar length
+          $('#rightBar').css('width', function(){
+            return window.photosByOthers/window.photosByYou * 100 + '%';
+          });
+        } else { // right bar should be greater
+          $('#leftBar').css('width', function(){
+            return window.photosByYou/window.photosByOthers * 100 + '%';
+          });
+        }
+        // now that everything has been set, unhide them
+        $('#leftBar').css('visibility', 'visible');
+        $('#rightBar').css('visibility', 'visible');
+        $('#outerBar').css('visibility', 'visible');
       });
     } else {
        console.log('User cancelled login or did not fully authorize.');      
