@@ -1,5 +1,5 @@
-
-
+var statusArray = [];
+var weightedStatusArray = [];
 
 define(['facebook'], function(){
   // initializes fb call
@@ -26,15 +26,19 @@ define(['facebook'], function(){
   // Goal: store all status updates
   // Note: statuses are limited to last 100, I don't know why
   FB.login(function(response){
+    console.log('in response function');
+    console.log(response);
     if (response.authResponse){
+      console.log('authResponse', response.authResponse);
+      FB.api('/me/permissions', function(response){
+        console.log('permissions', response);
+      });
       FB.api('/me/statuses?limit=100', function(response){
-        console.log(response);
-        console.log('////////////////////////////////// paging');
-        console.log('paging|', response.paging);
-        console.log('next|', response.paging.next);
-        console.log('previous|', response.paging.previous);
         // the call below will get the next page, however as mentioned above, the call is limited to 100
         // $.ajax({url: response.paging.next, complete: function(res) {console.log(res.responseText);}});
+        statusArray = response.data;
+        weightedStatusArray = calcWordWeighting(statusArray);
+        $('#wordcloud').jQCloud(weightedStatusArray);
       });
     } else {
       console.log('User cancelled login or did not fully authorize.');
