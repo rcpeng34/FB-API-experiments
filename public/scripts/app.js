@@ -11,8 +11,13 @@ require(['public/scripts/jqcloud-1.0.4.js', function(){
 // }]);
 
 //require fbselfieratio
-require(['public/scripts/fbselfieratio.js', function(){
-  console.log('async call complete for fbselfieratio');
+// require(['public/scripts/fbselfieratio.js', function(){
+//   console.log('async call complete for fbselfieratio');
+// }]);
+
+//require fblocationmap
+require(['public/scripts/fblocationmap.js', function(){
+  console.log('async call complete for fblocationmap');
 }]);
 
 require.config({
