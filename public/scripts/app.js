@@ -1,8 +1,9 @@
 console.log('from inside /public/js/app.js');
 
+//require fb
 require(['public/scripts/fb.js', function(){
   console.log('async call done');
-}])
+}]);
 
 require.config({
   shim: {
@@ -14,4 +15,8 @@ require.config({
     'facebook': '//connect.facebook.net/en_US/all'
   }
 });
-// require(['fb']);
+
+//require jqcloud for wordcloudkng
+require(['public/scripts/jqcloud-1.0.4.js', function(){
+  console.log('async call done');
+}]);
