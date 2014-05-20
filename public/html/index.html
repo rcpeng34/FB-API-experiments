@@ -4,6 +4,7 @@
   <title>Sandbox Playground</title>
   <link href="public/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="public/style.css" rel="stylesheet">
+  <link href="public/jqcloud.css" rel="stylesheet">
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -13,11 +14,13 @@
 <body>
 <div class='row navbar-inverse'>
   <div class='navbar-brand'>
-  Facebook Playground
+  Useless Facebook Stats
   </div>
 </div>
 <div class='row'>
-  <div class='col-xs-12'>
+  <div class='col-xs-12' id='firstrow'>
+    <h5>Status Word Cloud</h5>
+    <div id='wordcloud'/>
   </div>
 </div>
 </body>
