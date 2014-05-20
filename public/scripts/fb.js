@@ -73,7 +73,9 @@ var calcWordWeighting = function(statusArr) {
   }
   // now that resultObj is created, we must turn it into the right form for jqcloud
   for (var key in resultObj) {
-    results.push({text: key, weight: resultObj[key]});
+    if (resultObj[key] > 5){
+      results.push({text: key, weight: resultObj[key]});
+    }
   }
   return results;
 };
