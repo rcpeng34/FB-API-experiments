@@ -11,3 +11,5 @@ NOTES
   Follow up issue, other users are not getting the same permission requests = no data returned on module calls
     They're only getting requests/giving public response permission
   Facebook auth done as a popup automatically, should probably set it as an on click
+  Location info requires, in addition to user_photos and user_status, friend_status and friend_photos
+    These somehow on scope inclusion generates an authentication error
