@@ -38,7 +38,14 @@ define(['facebook'], function(){
         // $.ajax({url: response.paging.next, complete: function(res) {console.log(res.responseText);}});
         statusArray = response.data;
         weightedStatusArray = calcWordWeighting(statusArray);
-        $('#wordcloud').jQCloud(weightedStatusArray);
+        $(function(){
+          console.log('doc ready');
+          $('#wordcloud').jQCloud(weightedStatusArray, {
+            width: 600,
+            height: 400
+          });
+        });
+        console.log(weightedStatusArray);
       });
     } else {
       console.log('User cancelled login or did not fully authorize.');
@@ -52,9 +59,7 @@ var calcWordWeighting = function(statusArr) {
   var resultObj = {};
   var results = [];
   for (var i = 0; i < statusArr.length; i++) {
-    console.log(statusArr[i]);
-    // for each message extrapolate list of words
-    var messageAsArray = statusArr[i]['message'].split(' ');
+    var messageAsArray = statusArr[i].message.split(' ');
     //for each word, check if it is in resultObj, if it is, increment
     // if it is not, add it
     for (var j = 0; j < messageAsArray.length; j++) {
