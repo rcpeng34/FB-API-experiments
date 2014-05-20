@@ -1,8 +1,18 @@
 console.log('from inside /public/js/app.js');
 
-//require fb
-require(['public/scripts/fb.js', function(){
-  console.log('async call done');
+//require jqcloud for wordcloud
+require(['public/scripts/jqcloud-1.0.4.js', function(){
+  console.log('async call complete for jqcloud');
+}]);
+
+//require fbsoundcloud
+require(['public/scripts/fbsoundcloud.js', function(){
+  console.log('async call complete for fbsoundcloud');
+}]);
+
+//require fbselfieratio
+require(['public/scripts/fbselfieratio.js', function(){
+  console.log('async call complete for fbselfieratio');
 }]);
 
 require.config({
@@ -15,8 +25,3 @@ require.config({
     'facebook': '//connect.facebook.net/en_US/all'
   }
 });
-
-//require jqcloud for wordcloudkng
-require(['public/scripts/jqcloud-1.0.4.js', function(){
-  console.log('async call done');
-}]);
