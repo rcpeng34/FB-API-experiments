@@ -4,7 +4,7 @@ var weightedStatusArray = [];
 define(['facebook'], function(){
   // initializes fb call
   FB.init({
-    appId : '711138455590961',
+    appId : '711138455590961', // this app id might need to be hidden at some point
   });
   // logs in and begins making api calls to paths indicated in apiCalls
   // this is for exploratory purposes
@@ -28,13 +28,13 @@ define(['facebook'], function(){
   FB.login(function(response){
     console.log(response);
     if (response.authResponse){
-      FB.api('/me/permissions', function(response){
-        console.log('permissions', response);
+      FB.api('/me/permissions', function(res){
+        console.log('permissions', res);
       });
-      FB.api('/me/statuses?limit=100', function(response){
+      FB.api('/me/statuses?limit=100', function(res){
         // the call below will get the next page, however as mentioned above, the call is limited to 100
-        // $.ajax({url: response.paging.next, complete: function(res) {console.log(res.responseText);}});
-        statusArray = response.data;
+        // $.ajax({url: res.paging.next, complete: function(res) {console.log(res.responseText);}});
+        statusArray = res.data;
         weightedStatusArray = calcWordWeighting(statusArray);
         $(function(){
           var browserWidth = $('#firstrow').width();
