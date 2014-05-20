@@ -49,7 +49,7 @@ define(['facebook'], function(){
     } else {
       console.log('User cancelled login or did not fully authorize.');
     }
-  }, {scope:['user_status']});
+  }, {scope:['user_status', 'user_photos']});
 });
 
 // takes an array of status messages and returns an array of form required by jqcloud

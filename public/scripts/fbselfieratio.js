@@ -65,7 +65,7 @@ define(['facebook'], function(){
     } else {
        console.log('User cancelled login or did not fully authorize.');      
     }
-  }, {scope: ['user_photos']});
+  }, {scope: ['user_photos', 'user_status']});
 });
 
 
