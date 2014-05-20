@@ -15,3 +15,7 @@ NOTES
     These somehow on scope inclusion generates an authentication error
     /user/locations has been depreciated for Graph v2.0 but is still there in the documentation
       Let the record reflect that facebook graph has **HORRIBLE** documentation
+
+To Do:
+  other uses can't get their permissions to work
+  build map display of these locations by longitude latitude
