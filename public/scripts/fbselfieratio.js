@@ -25,12 +25,15 @@ define(['facebook'], function(){
         // note that total photos is only 400 so it's hardcoded for the purpose of the hackathon
         // you can call getNextPage and break when the last item in the array has lengh < the limit in '/me/photos?limit=x'
         console.log('Completed photo fetch');
-        // run through the loop and increment photographer counters
-        for (var i = 0; i < photoArray.length; i++) {
-          if (photoArray[i].from.name === username) {
-            photosByYou++;
-          } else {
-            photosByOthers++;
+        // in case of pagination, assume photoArray is an array of arrays (the pages)
+        for (var i = 0; i < photoArray.length; i++ ) {
+          // run through the loop and increment photographer counters
+          for (var j = 0; j < photoArray[i].length; j++) {
+            if (photoArray[i][j].from.name === username) {
+              photosByYou++;
+            } else {
+              photosByOthers++;
+            }
           }
         }
         console.log('Photographer count is complete');
