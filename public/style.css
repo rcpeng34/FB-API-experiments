@@ -7,3 +7,40 @@ h2 {
 #wordcloud {
   visibility: visible;
 }
+.innerContainerLeft {
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-right:0px;
+  margin-left:20px;
+}
+.innerContainerRight {
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-right:20px;
+  margin-left:0px;
+}
+#leftBar {
+  width: 50%;
+  height: 30px;
+  background:#39d;
+  float:left;
+  text-align:center;
+  border-radius: 3px 0 0 3px;
+}
+#rightBar {
+  width: 50%;
+  height: 30px;
+  background:#aab5f0;
+  float:left;
+  text-align:center;
+  border-radius: 0 3px 3px 0;
+  visibility: hidden;
+}
+#outerBar {
+  text-align:center;
+  margin-left: 45px;
+  visibility: hidden;
+}
+p {
+  margin-top: 35px;
+}
