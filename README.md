@@ -16,6 +16,15 @@ NOTES
     /user/locations has been depreciated for Graph v2.0 but is still there in the documentation
       Let the record reflect that facebook graph has **HORRIBLE** documentation
 
+RE: Facebook Permissions
+  Once you publicize the app, you have to request facebook to approve your permission requests for users
+  Until they approve it, you will be only approved for basic info: email, public_profile, user_friends
+
+  In the meantime, new users must be registered as developers
+    Once registered, you must add them to the app and they must accept the request
+
+
+
 To Do:
-  other uses can't get their permissions to work
   build map display of these locations by longitude latitude
+
