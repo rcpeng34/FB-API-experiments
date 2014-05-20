@@ -1,5 +1,5 @@
-var statusArray = [];
-var weightedStatusArray = [];
+window.statusArray = [];
+window.weightedStatusArray = [];
 
 define(['facebook'], function(){
   // initializes fb call

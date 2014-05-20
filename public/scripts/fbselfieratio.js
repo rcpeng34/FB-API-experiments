@@ -1,7 +1,7 @@
-var photoArray = [];
-var photosByYou = 0;
-var photosByOthers = 0;
-var username;
+window.photoArray = [];
+window.photosByYou = 0;
+window.photosByOthers = 0;
+window.username;
 
 define(['facebook'], function(){
   // initializes fb call
