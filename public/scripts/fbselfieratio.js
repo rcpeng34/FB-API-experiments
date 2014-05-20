@@ -1,3 +1,5 @@
+var photoArray = [];
+
 define(['facebook'], function(){
   // initializes fb call
   FB.init({
@@ -5,8 +7,14 @@ define(['facebook'], function(){
   });
   FB.login(function(response){
     if(response.authResponse){
-      FB.api('/me/photos', function(res){
-        console.log('/me/photos', res);
+      FB.api('/me/photos?limit=100', function(res){
+        photoArray.push(res.data);
+        $.ajax({
+          url: res.paging.next, complete: function(res) {
+            photoArray.push(JSON.parse(res.responseText).data);
+            console.log(res);
+          }
+        });
       });
     } else {
        console.log('User cancelled login or did not fully authorize.');      
