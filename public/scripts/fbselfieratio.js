@@ -10,29 +10,29 @@ define(['facebook'], function(){
   });
   FB.login(function(response){
     if(response.authResponse){
-      // if username is undefined, set it
-      if(!username){
+      // if window.username is undefined, set it
+      if(!window.username){
         FB.api('/me', function(res){
-          username = res.name;
-          console.log('username', username);
+          window.username = res.name;
+          console.log('window.username', window.username);
         });
       }
       // do not nest the api calls because even if you should nest the callbacks or use promisify...
-      // the api call below is much slower: 400 photo objects vs in username.
+      // the api call below is much slower: 400 photo objects vs in window.username.
       FB.api('/me/photos?limit=400', function(res){
-        photoArray.push(res.data);
+        window.photoArray.push(res.data);
         // with more time, this is where to begin logic to grab data from pagination
         // note that total photos is only 400 so it's hardcoded for the purpose of the hackathon
         // you can call getNextPage and break when the last item in the array has lengh < the limit in '/me/photos?limit=x'
         console.log('Completed photo fetch');
-        // in case of pagination, assume photoArray is an array of arrays (the pages)
-        for (var i = 0; i < photoArray.length; i++ ) {
+        // in case of pagination, assume window.photoArray is an array of arrays (the pages)
+        for (var i = 0; i < window.photoArray.length; i++ ) {
           // run through the loop and increment photographer counters
-          for (var j = 0; j < photoArray[i].length; j++) {
-            if (photoArray[i][j].from.name === username) {
-              photosByYou++;
+          for (var j = 0; j < window.photoArray[i].length; j++) {
+            if (window.photoArray[i][j].from.name === window.username) {
+              window.photosByYou++;
             } else {
-              photosByOthers++;
+              window.photosByOthers++;
             }
           }
         }
@@ -52,7 +52,7 @@ define(['facebook'], function(){
 var getNextPage = function(nextURL) {
   $.ajax({
     url: res.paging.next, complete: function(res) {
-      photoArray.push(JSON.parse(res.responseText).data);
+      window.photoArray.push(JSON.parse(res.responseText).data);
       console.log('page get call returned and pushed');
       return res.paging.next;
     }

@@ -34,11 +34,11 @@ define(['facebook'], function(){
       FB.api('/me/statuses?limit=100', function(res){
         // the call below will get the next page, however as mentioned above, the call is limited to 100
         // $.ajax({url: res.paging.next, complete: function(res) {console.log(res.responseText);}});
-        statusArray = res.data;
-        weightedStatusArray = calcWordWeighting(statusArray);
+        window.statusArray = res.data;
+        window.weightedStatusArray = calcWordWeighting(window.statusArray);
         $(function(){
           var browserWidth = $('#firstrow').width();
-          $('#wordcloud').jQCloud(weightedStatusArray, {
+          $('#wordcloud').jQCloud(window.weightedStatusArray, {
             width: browserWidth,
             height: browserWidth/2
           });
