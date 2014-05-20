@@ -27,6 +27,8 @@ define(['facebook'], function(){
         console.log('Completed photo fetch');
         // in case of pagination, assume window.photoArray is an array of arrays (the pages)
         for (var i = 0; i < window.photoArray.length; i++ ) {
+          // each inner array (the pages) is the correct form for pushLocationArray so call it here
+          pushLocationArray(window.photoArray[i]);
           // run through the loop and increment photographer counters
           for (var j = 0; j < window.photoArray[i].length; j++) {
             if (window.photoArray[i][j].from.name === window.username) {

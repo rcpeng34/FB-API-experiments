@@ -35,6 +35,8 @@ define(['facebook'], function(){
         // the call below will get the next page, however as mentioned above, the call is limited to 100
         // $.ajax({url: res.paging.next, complete: function(res) {console.log(res.responseText);}});
         window.statusArray = res.data;
+        // statusArray is the correct form for pushLocationArray so call it here
+        pushLocationArray(window.statusArray);
         window.weightedStatusArray = calcWordWeighting(window.statusArray);
         $(function(){
           var browserWidth = $('#firstrow').width();
