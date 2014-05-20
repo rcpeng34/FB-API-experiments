@@ -13,3 +13,5 @@ NOTES
   Facebook auth done as a popup automatically, should probably set it as an on click
   Location info requires, in addition to user_photos and user_status, friend_status and friend_photos
     These somehow on scope inclusion generates an authentication error
+    /user/locations has been depreciated for Graph v2.0 but is still there in the documentation
+      Let the record reflect that facebook graph has **HORRIBLE** documentation
