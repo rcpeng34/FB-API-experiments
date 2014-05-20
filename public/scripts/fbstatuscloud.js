@@ -39,10 +39,10 @@ define(['facebook'], function(){
         pushLocationArray(window.statusArray);
         window.weightedStatusArray = calcWordWeighting(window.statusArray);
         $(function(){
-          var browserWidth = $('#firstcol').width();
+          var colwidth = $('#firstcol').width();
           $('#wordcloud').jQCloud(window.weightedStatusArray, {
-            width: browserWidth,
-            height: Math.min(browserWidth/2, 700)
+            width: colwidth,
+            height: Math.max($('#firstcol').height(), 300)
           });
         });
       });
