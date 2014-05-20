@@ -26,10 +26,8 @@ define(['facebook'], function(){
   // Goal: store all status updates
   // Note: statuses are limited to last 100, I don't know why
   FB.login(function(response){
-    console.log('in response function');
     console.log(response);
     if (response.authResponse){
-      console.log('authResponse', response.authResponse);
       FB.api('/me/permissions', function(response){
         console.log('permissions', response);
       });
@@ -39,13 +37,12 @@ define(['facebook'], function(){
         statusArray = response.data;
         weightedStatusArray = calcWordWeighting(statusArray);
         $(function(){
-          console.log('doc ready');
+          var browserWidth = $('#firstrow').width();
           $('#wordcloud').jQCloud(weightedStatusArray, {
-            width: 600,
-            height: 400
+            width: browserWidth,
+            height: browserWidth/2
           });
         });
-        console.log(weightedStatusArray);
       });
     } else {
       console.log('User cancelled login or did not fully authorize.');
