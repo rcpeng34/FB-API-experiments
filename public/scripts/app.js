@@ -6,9 +6,9 @@ require(['public/scripts/jqcloud-1.0.4.js', function(){
 }]);
 
 //require fbsoundcloud
-require(['public/scripts/fbsoundcloud.js', function(){
-  console.log('async call complete for fbsoundcloud');
-}]);
+// require(['public/scripts/fbsoundcloud.js', function(){
+//   console.log('async call complete for fbsoundcloud');
+// }]);
 
 //require fbselfieratio
 require(['public/scripts/fbselfieratio.js', function(){
