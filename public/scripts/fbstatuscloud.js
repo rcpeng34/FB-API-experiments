@@ -39,7 +39,7 @@ define(['facebook'], function(){
         pushLocationArray(window.statusArray);
         window.weightedStatusArray = calcWordWeighting(window.statusArray);
         $(function(){
-          var browserWidth = $('#firstrow').width();
+          var browserWidth = $('#firstcol').width();
           $('#wordcloud').jQCloud(window.weightedStatusArray, {
             width: browserWidth,
             height: Math.min(browserWidth/2, 700)
