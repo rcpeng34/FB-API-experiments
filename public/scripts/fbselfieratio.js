@@ -31,7 +31,9 @@ define(['facebook'], function(){
           pushLocationArray(window.photoArray[i]);
           // run through the loop and increment photographer counters
           for (var j = 0; j < window.photoArray[i].length; j++) {
-            if (window.photoArray[i][j].from.name === window.username) {
+            // only increment photosByYou if you took it and you're the only one tagged
+            if (window.photoArray[i][j].from.name === window.username && 
+              window.photoArray[i][j].tags.data.length === 1) {
               window.photosByYou++;
             } else {
               window.photosByOthers++;
