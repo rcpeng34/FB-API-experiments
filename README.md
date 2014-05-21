@@ -27,4 +27,5 @@ RE: Facebook Permissions
 
 To Do:
   build map display of these locations by longitude latitude
+  clean up code by moving the fb login and init to app.js
 
