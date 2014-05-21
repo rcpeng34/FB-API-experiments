@@ -1,3 +1,7 @@
+#firstRow {
+  margin-top: 80px;
+}
+
 h2 {
   text-align: center;
 }
@@ -19,7 +23,7 @@ h2 {
 #leftBar {
   width: 50%;
   height: 30px;
-  background:#39d;
+  background:#2f4779;
   float:left;
   text-align:center;
   border-radius: 3px 0 0 3px;
@@ -27,7 +31,7 @@ h2 {
 #rightBar {
   width: 50%;
   height: 30px;
-  background:#aab5f0;
+  background:#8b9dc3;
   float:left;
   text-align:center;
   border-radius: 0 3px 3px 0;
@@ -55,6 +59,10 @@ p {
   margin-top: 35px;
   border-radius: 3px;
   float: left;
+}
+
+#bottomText {
+  color: #4e69a2;
 }
 
 .glyphicon-search {
