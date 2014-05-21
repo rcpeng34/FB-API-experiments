@@ -41,3 +41,33 @@ h2 {
 p {
   margin-top: 35px;
 }
+
+.navbar-fixed-top {
+  background-color: #4e69a2;
+  height: 80px;
+}
+
+#searchBar {
+  background-color: #2f4779;
+  margin-left: 5px;
+  width:90%;
+  height: 40px;
+  margin-top: 35px;
+  border-radius: 3px;
+  float: left;
+}
+
+.glyphicon-search {
+  color: #4e69a2;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.glyphicon-user {
+  color: white;
+  float: left;
+  font-size: 30px;
+  margin-left:15px;
+  margin-top: 40px;
+}

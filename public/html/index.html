@@ -12,15 +12,17 @@
   <script data-main="public/scripts/app" src="public/scripts/require.js"></script>
 </head>
 <body>
-  
+  <!-- ********** navbar html ********** -->
   <div class='navbar-inverse navbar-fixed-top'>
     <div class='container'>
-      <div class='navbar-brand'>
-      Useless Facebook Stats
+      <div id='searchBar'>
+        <span class='glyphicon glyphicon-search' id='magnifyingGlass'> Useless profile stats</span>
       </div>
+      <span class='glyphicon glyphicon-user'></span>
     </div>
   </div>
-  
+
+<!-- ********** wordcloud ********** -->
   <div class='container'>
     <div class='row'>
       <h2>Status Word Cloud</h2>
@@ -35,8 +37,7 @@
         </div>
       </div>
     </div>
-
-
+<!-- ********** selfie ratio ********** -->
     <div class='row'>
       <h2>Selfie Ratio</h2>
       <div class='col-xs-6 firstcol'>
@@ -55,6 +56,13 @@
       </div>
     </div>
   </div>
-
+<!-- ********** footer bar ********** -->
+<div class= 'navbar-fixed-bottom'> 
+  <div class='container-fluid'>
+    <ul class='nav navbar-nav'>
+      <li><a href='#'>By Richard Peng</a></li>      
+    </ul>
+  </div>
+</div>
 </body>
 </html>
