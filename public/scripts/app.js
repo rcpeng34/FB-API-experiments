@@ -5,21 +5,6 @@ require(['public/scripts/jqcloud-1.0.4.js', function(){
   console.log('async call complete for jqcloud');
 }]);
 
-//require fbstatuscloud
-require(['public/scripts/fbstatuscloud.js', function(){
-  console.log('async call complete for fbstatuscloud');
-}]);
-
-//require fbselfieratio
-require(['public/scripts/fbselfieratio.js', function(){
-  console.log('async call complete for fbselfieratio');
-}]);
-
-//require fblocationmap
-require(['public/scripts/fblocationmap.js', function(){
-  console.log('async call complete for fblocationmap');
-}]);
-
 require.config({
   shim: {
     'facebook' : {
@@ -30,3 +15,32 @@ require.config({
     'facebook': '//connect.facebook.net/en_US/all'
   }
 });
+
+define(['facebook'], function(){
+  // initializes fb call
+  FB.init({
+    appId : '711138455590961', // this app id might need to be hidden at some point
+  });
+
+  FB.login(function(response){
+    
+    //require fbstatuscloud
+    require(['public/scripts/fbstatuscloud.js', function(){
+      console.log('async call complete for fbstatuscloud');
+    }]);
+
+    //require fbselfieratio
+    require(['public/scripts/fbselfieratio.js', function(){
+      console.log('async call complete for fbselfieratio');
+    }]);
+
+    //require fblocationmap
+    require(['public/scripts/fblocationmap.js', function(){
+      console.log('async call complete for fblocationmap');
+    }]);
+    
+  }, {scope:['user_status', 'user_photos']});
+});
+
+
+

@@ -2,21 +2,21 @@ window.photoArray = [];
 window.photosByYou = 0;
 window.photosByOthers = 0;
 window.username;
-
-define(['facebook'], function(){
-  // initializes fb call
-  FB.init({
-    appId : '711138455590961', // this app id might need to be hidden at some point
-  });
-  FB.login(function(response){
-    if(response.authResponse){
-      // if window.username is undefined, set it
-      if(!window.username){
-        FB.api('/me', function(res){
-          window.username = res.name;
-          console.log('window.username', window.username);
-        });
-      }
+console.log('made variables');
+// define(['facebook'], function(){
+//   // initializes fb call
+//   FB.init({
+//     appId : '711138455590961', // this app id might need to be hidden at some point
+//   });
+//   FB.login(function(response){
+//     if(response.authResponse){
+//       // if window.username is undefined, set it
+//       if(!window.username){
+//         FB.api('/me', function(res){
+//           window.username = res.name;
+//           console.log('window.username', window.username);
+//         });
+//       }
       // do not nest the api calls because even if you should nest the callbacks or use promisify...
       // the api call below is much slower: 400 photo objects vs in window.username.
       FB.api('/me/photos?limit=400', function(res){
@@ -63,11 +63,11 @@ define(['facebook'], function(){
         $('#rightBar').css('visibility', 'visible');
         $('#outerBar').css('visibility', 'visible');
       });
-    } else {
-       console.log('User cancelled login or did not fully authorize.');      
-    }
-  }, {scope: ['user_photos', 'user_status']});
-});
+//     else {
+//        console.log('User cancelled login or did not fully authorize.');      
+//     }
+//   }, {scope: ['user_photos', 'user_status']});
+// });
 
 
 // this is an incomplete method to grab data from the next page
