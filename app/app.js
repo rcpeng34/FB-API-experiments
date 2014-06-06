@@ -1,1 +1,0 @@
-console.log('from app.js in /app');
