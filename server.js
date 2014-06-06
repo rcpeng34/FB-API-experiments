@@ -1,6 +1,5 @@
 var express = require ('express'), 
-    http    = require ('http'), 
-    app = require(__dirname + '/app/app.js');
+    http    = require ('http'); 
 
 var app = express();
 var httpport = process.env.port || 3005;
