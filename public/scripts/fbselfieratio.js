@@ -42,7 +42,7 @@ console.log('made variables');
         }
         console.log('Photographer count is complete');
         // set text for the graph
-        $('#outerText').append(window.photosByOthers + window.photosByYou + ' photos');
+        $('#selfieText').append(window.photosByOthers + window.photosByYou + ' photos');
         $('#leftBar .barText').append(window.photosByYou + ' selfies');
         $('#rightBar .barText').append(window.photosByOthers + ' normal pics');
 
