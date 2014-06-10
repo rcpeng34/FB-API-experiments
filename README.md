@@ -19,6 +19,5 @@ RE: Facebook Permissions
 
 To Do:
   build map display of these locations by longitude latitude
-  clean up code by moving the fb login and init to app.js
-  bug - login pops up twice and loggin into one fails the other for the first try.
-
+  clean words in status cloud by removing grammar
+  add another ratio of photos you took vs/ other took in selfie ratio
