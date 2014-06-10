@@ -1,41 +1,20 @@
 window.statusArray = [];
 window.weightedStatusArray = [];
 
-// define(['facebook'], function(){
+FB.api('/me/statuses?limit=100', function(res){
+  // the call below will get the next page, however as mentioned above, the call is limited to 100
+  // $.ajax({url: res.paging.next, complete: function(res) {console.log(res.responseText);}});
+  window.statusArray = res.data;
+  // statusArray is the correct form for pushLocationArray so call it here
+  pushLocationArray(window.statusArray);
+  window.weightedStatusArray = calcWordWeighting(window.statusArray);
   
-  // // initializes fb call
-  // FB.init({
-  //   appId : '711138455590961', // this app id might need to be hidden at some point
-  // });
-
-
-  // FB.login(function(response){
-  //   console.log(response);
-  //   if (response.authResponse){
-  //     FB.api('/me/permissions', function(res){
-  //       console.log('permissions', res);
-  //     });
-      FB.api('/me/statuses?limit=100', function(res){
-        // the call below will get the next page, however as mentioned above, the call is limited to 100
-        // $.ajax({url: res.paging.next, complete: function(res) {console.log(res.responseText);}});
-        window.statusArray = res.data;
-        // statusArray is the correct form for pushLocationArray so call it here
-        pushLocationArray(window.statusArray);
-        window.weightedStatusArray = calcWordWeighting(window.statusArray);
-        
-        var colwidth = $('.firstcol').width();
-        $('#wordcloud').jQCloud(window.weightedStatusArray, {
-          width: colwidth,
-          height: Math.max($('.firstcol').height(), 300)
-        });
-        
-//       });
-    });
-    // else {
-//       console.log('User cancelled login or did not fully authorize.');
-//     }
-//   }, {scope:['user_status', 'user_photos']});
-// });
+  var colwidth = $('.firstcol').width();
+  $('#wordcloud').jQCloud(window.weightedStatusArray, {
+    width: colwidth,
+    height: Math.max($('.firstcol').height(), 300)
+  });
+});
 
 // takes an array of status messages and returns an array of form required by jqcloud
 // this is the form required: [{text: 'lorem', weight: 14}...]
@@ -47,6 +26,8 @@ var calcWordWeighting = function(statusArr) {
   var totalWords = 0;
   for (var i = 0; i < statusArr.length; i++) {
     var messageAsArray = statusArr[i].message.split(' ');
+    // clean messageAsArray to remove common words
+    
     // add # words in the message to totalWords
     totalWords += messageAsArray.length;
     //for each word, check if it is in resultObj, if it is, increment
