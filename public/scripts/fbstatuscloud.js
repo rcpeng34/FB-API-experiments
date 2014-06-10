@@ -21,23 +21,75 @@ FB.api('/me/statuses?limit=100', function(res){
 var calcWordWeighting = function(statusArr) {
   var resultObj = {};
   var results = [];
+  var commonWords = { // 50 most common english words from wikipedia
+    the: true,
+    be: true,
+    to: true,
+    of: true,
+    and: true,
+    a: true,
+    'in': true,
+    that: true,
+    have: true,
+    I: true,
+    it: true,
+    'for': true,
+    'not': true,
+    on: true,
+    'with': true,
+    he: true,
+    as: true,
+    you: true,
+    'do': true,
+    'at': true,
+    'this': true,
+    'but': true,
+    his: true,
+    by: true,
+    'from': true,
+    they: true,
+    we: true,
+    say: true,
+    her: true,
+    she: true,
+    'or': true,
+    an: true,
+    will: true,
+    my: true,
+    one: true,
+    'all': true,
+    would: true,
+    there: true,
+    their: true,
+    what: true,
+    so: true,
+    up: true,
+    out: true,
+    'if': true,
+    about: true,
+    who: true,
+    'get': true,
+    which: true,
+    go: true,
+    me: true
+  };
   // totalWords is the wordcount of all messages
   //totalWords/# keys in resultObj will give mean weight
   var totalWords = 0;
   for (var i = 0; i < statusArr.length; i++) {
     var messageAsArray = statusArr[i].message.split(' ');
-    // clean messageAsArray to remove common words
-    
-    // add # words in the message to totalWords
-    totalWords += messageAsArray.length;
     //for each word, check if it is in resultObj, if it is, increment
     // if it is not, add it
     for (var j = 0; j < messageAsArray.length; j++) {
+      // check if if the word is a common word if not, add
       var word = messageAsArray[j];
-      if(resultObj[word]) { // it exists
-        resultObj[word] += 1;
-      } else { // it does not exist yet
-        resultObj[word] = 1;
+      if(!commonWords[word]) { // not in common words
+        totalWords++; //increment count of total words used
+        if(resultObj[word]) { // it exists
+          resultObj[word] += 1;
+        } else { // it does not exist yet
+          resultObj[word] = 1;
+        }
       }
     }
   }
