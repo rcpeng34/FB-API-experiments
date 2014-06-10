@@ -13,12 +13,14 @@ h2 {
   margin-bottom:10px;
   margin-right:0px;
   margin-left:20px;
+  text-align: center;
 }
 .innerContainerRight {
   margin-top:10px;
   margin-bottom:10px;
   margin-right:20px;
   margin-left:0px;
+  text-align: center;
 }
 #leftBar {
   width: 50%;
