@@ -83,3 +83,7 @@ p {
   margin-left:15px;
   margin-top: 40px;
 }
+
+#map-container {
+  height: 500px;
+}

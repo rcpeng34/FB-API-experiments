@@ -10,8 +10,7 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src='public/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
   <script data-main='public/scripts/app' src='public/scripts/require.js'></script>
-  <script type='text/javascript'src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAZG4jF-TEY58uksoXDUTwJiVj3oyowIKo'>
-    </script>
+  <script type='text/javascript'src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAZG4jF-TEY58uksoXDUTwJiVj3oyowIKo'></script>
 </head>
 <body>
   <!-- ********** navbar html ********** -->
@@ -49,16 +48,20 @@
       </div>
     </div>
 
-
+<!-- ********** location map ********** -->
     <div class='row'>
-      <div class='col-xs-6 firstcol'>
+      <div class='col-xs-12 firstcol'>
         <div class='innerContainerLeft'>
+          <h2>Activity Map</h2>
+          <p>Map of status updates and tagged photos</p>
+          <div id='map-container'>
+          </div>
         </div>
       </div>
-      <div class='col-xs-6 secondcol'>
+      <!-- <div class='col-xs-6 secondcol'>
         <div class='innerContainerRight'>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 <!-- ********** footer bar ********** -->
