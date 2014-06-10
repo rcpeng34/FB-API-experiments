@@ -39,10 +39,12 @@ h2 {
   border-radius: 0 3px 3px 0;
   visibility: hidden;
 }
-#outerBar {
+.outerBar {
   text-align:center;
   margin-left: 45px;
   visibility: hidden;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 p {
   margin-top: 35px;

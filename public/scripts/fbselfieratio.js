@@ -49,7 +49,7 @@ FB.api('/me/photos?limit=400', function(res){
   // now that everything has been set, unhide them
   $('#leftBar').css('visibility', 'visible');
   $('#rightBar').css('visibility', 'visible');
-  $('#outerBar').css('visibility', 'visible');
+  $('.outerBar').css('visibility', 'visible');
 });
 
 
