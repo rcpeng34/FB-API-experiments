@@ -21,26 +21,28 @@ define(['facebook'], function(){
   FB.init({
     appId : '711138455590961', // this app id might need to be hidden at some point
   });
-
-  FB.login(function(response){
-    
-    //require fbstatuscloud
-    require(['public/scripts/fbstatuscloud.js', function(){
-      console.log('async call complete for fbstatuscloud');
-    }]);
-
-    //require fbselfieratio
-    require(['public/scripts/fbselfieratio.js', function(){
-      console.log('async call complete for fbselfieratio');
-    }]);
-
-    //require fblocationmap
-    require(['public/scripts/fblocationmap.js', function(){
-      console.log('async call complete for fblocationmap');
-    }]);
-    
-  }, {scope:['user_status', 'user_photos']});
 });
 
+document.getElementById('searchBar').style.cursor = 'pointer';
+document.getElementById('searchBar').onclick = function() {
+      FB.login(function(response){
+        
+        //require fbstatuscloud
+        require(['public/scripts/fbstatuscloud.js', function(){
+          console.log('async call complete for fbstatuscloud');
+        }]);
+
+        //require fbselfieratio
+        require(['public/scripts/fbselfieratio.js', function(){
+          console.log('async call complete for fbselfieratio');
+        }]);
+
+        //require fblocationmap
+        require(['public/scripts/fblocationmap.js', function(){
+          console.log('async call complete for fblocationmap');
+        }]);
+        
+      }, {scope:['user_status', 'user_photos']});
+};
 
 
