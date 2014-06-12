@@ -19,8 +19,10 @@ var initialize = function(){
   };
   map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
   console.log('complete initialize');
+// plot all the markers in locationArray as markers on map
+
+
 };
 
-$('document').ready(function(){console.log('in callback'); initialize();});
+$('document').ready(function(){initialize();});
 
-// plot all the markers in locationArray as markers on map
