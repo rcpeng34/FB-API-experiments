@@ -18,7 +18,6 @@ FB.api('/me/statuses?limit=100', function(res){
       topWord[1] = window.weightedStatusArray[i].weight;
     }
   }
-  console.log(topWord);
   $('#cloudText').append(' "'+topWord[0]+'"');
   var colwidth = $('.firstcol').width();
   $('#wordcloud').jQCloud(window.weightedStatusArray, {
