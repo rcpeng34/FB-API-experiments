@@ -1,4 +1,6 @@
 window.locationArray = [];
+window.markerArray = [];
+window.infoWindowArray = [];
 window.map;
 
 // assume that input array allows access to location in form arr[x].place.location
@@ -19,10 +21,24 @@ var initialize = function(){
   };
   map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
   console.log('complete initialize');
-// plot all the markers in locationArray as markers on map
-
-
 };
 
 $('document').ready(function(){initialize();});
 
+var plotMarkers = function() {
+// plot all the markers in locationArray as markers on map
+  for (var i = 0; i < window.locationArray.length; i++){
+    var place = window.locationArray[i];
+    var latlng = new google.maps.LatLng(place.latitude, place.longitude);
+    // var markerArray[i] = new google.maps.Marker({
+    //   position: latlng,
+    //   map: map
+    // });
+  //   var infoWindowArray[i] = new google.maps.InfoWindow({
+  //     content: place.street + ', ' + place.city + ' ' + place.state
+  //   });
+  //   googe.maps.event.addListener(markerArray[i], 'click', function(){
+  //     infoWindowArray[i].open(map, markerArray[i]);
+  //   });
+  }
+};
