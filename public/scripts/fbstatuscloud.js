@@ -9,6 +9,17 @@ FB.api('/me/statuses?limit=100', function(res){
   pushLocationArray(window.statusArray);
   window.weightedStatusArray = calcWordWeighting(window.statusArray);
   
+  // determine highest weighted word
+  var topWord = ['', 0];
+  for (var i = 0; i < window.weightedStatusArray.length; i++){
+    if (window.weightedStatusArray[i].weight > topWord[1]){
+      // word has greater weight
+      topWord[0] = window.weightedStatusArray[i].text;
+      topWord[1] = window.weightedStatusArray[i].weight;
+    }
+  }
+  console.log(topWord);
+  $('#cloudText').append(' "'+topWord[0]+'"');
   var colwidth = $('.firstcol').width();
   $('#wordcloud').jQCloud(window.weightedStatusArray, {
     width: colwidth,
@@ -83,7 +94,7 @@ var calcWordWeighting = function(statusArr) {
     for (var j = 0; j < messageAsArray.length; j++) {
       // check if if the word is a common word if not, add
       var word = messageAsArray[j];
-      if(!commonWords[word]) { // not in common words
+      if(!commonWords[word] && word !=='') { // not in common words
         totalWords++; //increment count of total words used
         if(resultObj[word]) { // it exists
           resultObj[word] += 1;
