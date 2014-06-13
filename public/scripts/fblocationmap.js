@@ -29,16 +29,17 @@ var plotMarkers = function() {
 // plot all the markers in locationArray as markers on map
   for (var i = 0; i < window.locationArray.length; i++){
     var place = window.locationArray[i];
+    console.log(i);
     var latlng = new google.maps.LatLng(place.latitude, place.longitude);
-    // var markerArray[i] = new google.maps.Marker({
-    //   position: latlng,
-    //   map: map
-    // });
-  //   var infoWindowArray[i] = new google.maps.InfoWindow({
-  //     content: place.street + ', ' + place.city + ' ' + place.state
-  //   });
-  //   googe.maps.event.addListener(markerArray[i], 'click', function(){
-  //     infoWindowArray[i].open(map, markerArray[i]);
-  //   });
+    markerArray[i] = new google.maps.Marker({
+      position: latlng,
+      map: map
+    });
+    infoWindowArray[i] = new google.maps.InfoWindow({
+      content: place.street + ', ' + place.city + ' ' + place.state
+    });
+    google.maps.event.addListener(markerArray[i], 'click', function(){
+      infoWindowArray[i].open(map, markerArray[i]);
+    });
   }
 };
