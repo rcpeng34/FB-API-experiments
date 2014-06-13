@@ -8,6 +8,7 @@ var pushLocationArray = function(inputArray) {
     if (inputArray[i].place) {
       // some might not have a place value, so check it first
       window.locationArray.push(inputArray[i].place.location);
+      makeMarker(inputArray[i]);
     }
   }
   console.log('finished pushing to locationArray');
@@ -41,4 +42,38 @@ var plotMarkers = function() {
     });
     markerArray.push(newMarker);
   }
+};
+
+var makeMarker = function(fbObj) { // this should only come from pushLocationArray
+  // fbObj will either be a status or a picture
+  /*
+  case photo:
+    source - url that can be accessed anywhere
+    images - array with objects that have height, width, and source
+    place - obj, long, lat, name
+  case status:
+    place - same as above
+    message - string
+  */
+
+  var place = fbObj.place;
+  var latlng = new google.maps.LatLng(place.latitude, place.longitude);
+  var newMarker = new google.maps.Marker({
+    position: latlng,
+    map:map
+  });
+  if (fbObj.picture) { // if there's something there, it's a pic not a status
+    newMarker.info = new google.maps.InfoWindow({
+      content: fbObj.place.name + '\n' + fbObj.source
+    });
+  } else { // assume it's a status
+    newMarker.info = new google.maps.InfoWindow({
+      content: fbObj.place.name + '\n' + fbObj.message
+    });
+  }
+  google.maps.event.addListener(newMarker, 'click', function(){
+    // use this because of scope, this refers to marker being clicked
+    this.info.open(map, this);
+  });
+  markerArray.push(newMarker);
 };
