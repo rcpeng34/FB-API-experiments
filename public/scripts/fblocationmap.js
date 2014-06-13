@@ -1,6 +1,5 @@
 window.locationArray = [];
 window.markerArray = [];
-window.infoWindowArray = [];
 window.map;
 
 // assume that input array allows access to location in form arr[x].place.location
@@ -29,17 +28,17 @@ var plotMarkers = function() {
 // plot all the markers in locationArray as markers on map
   for (var i = 0; i < window.locationArray.length; i++){
     var place = window.locationArray[i];
-    console.log(i);
     var latlng = new google.maps.LatLng(place.latitude, place.longitude);
-    markerArray[i] = new google.maps.Marker({
+    var newMarker = new google.maps.Marker({
       position: latlng,
       map: map
     });
-    infoWindowArray[i] = new google.maps.InfoWindow({
+    newMarker.info = new google.maps.InfoWindow({
       content: place.street + ', ' + place.city + ' ' + place.state
     });
-    google.maps.event.addListener(markerArray[i], 'click', function(){
-      infoWindowArray[i].open(map, markerArray[i]);
+    google.maps.event.addListener(newMarker, 'click', function(){
+      this.info.open(map, this);
     });
+    markerArray.push(newMarker);
   }
 };
