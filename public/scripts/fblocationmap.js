@@ -68,7 +68,7 @@ var makeMarker = function(fbObj) { // this should only come from pushLocationArr
     });
   } else { // assume it's a status
     newMarker.info = new google.maps.InfoWindow({
-      content: fbObj.place.name + '<br>' + fbObj.message
+      content: fbObj.place.name + '<br> Status: "' + fbObj.message + '"'
     });
   }
   google.maps.event.addListener(newMarker, 'click', function(){
