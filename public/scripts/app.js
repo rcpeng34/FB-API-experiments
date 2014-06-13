@@ -2,6 +2,17 @@ console.log('from inside /public/js/app.js');
 
 window.map;
 
+var initialize = function(){
+  var mapOptions = {
+    center: new google.maps.LatLng(0, 0),
+    zoom: 1
+  };
+  map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
+  console.log('complete initialize');
+};
+
+$('document').ready(function(){initialize();});
+
 //require jqcloud for wordcloud
 require(['public/scripts/jqcloud-1.0.4.js', function(){
   console.log('async call complete for jqcloud');
@@ -47,13 +58,3 @@ document.getElementById('searchBar').onclick = function() {
       }, {scope:['user_status', 'user_photos']});
 };
 
-var initialize = function(){
-  var mapOptions = {
-    center: new google.maps.LatLng(0, 0),
-    zoom: 1
-  };
-  map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
-  console.log('complete initialize');
-};
-
-$('document').ready(function(){initialize();});
