@@ -1,6 +1,5 @@
 window.locationArray = [];
 window.markerArray = [];
-window.map;
 
 // assume that input array allows access to location in form arr[x].place.location
 var pushLocationArray = function(inputArray) { 
@@ -14,16 +13,16 @@ var pushLocationArray = function(inputArray) {
   console.log('finished pushing to locationArray');
 };
 
-var initialize = function(){
-  var mapOptions = {
-    center: new google.maps.LatLng(0, 0),
-    zoom: 1
-  };
-  map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
-  console.log('complete initialize');
-};
+// var initialize = function(){
+//   var mapOptions = {
+//     center: new google.maps.LatLng(0, 0),
+//     zoom: 1
+//   };
+//   map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
+//   console.log('complete initialize');
+// };
 
-$('document').ready(function(){initialize();});
+// $('document').ready(function(){initialize();});
 
 var plotMarkers = function() {
 // plot all the markers in locationArray as markers on map
@@ -55,9 +54,10 @@ var makeMarker = function(fbObj) { // this should only come from pushLocationArr
     place - same as above
     message - string
   */
-
+  // console.log(fbObj);
   var place = fbObj.place;
-  var latlng = new google.maps.LatLng(place.latitude, place.longitude);
+  console.log(place);
+  var latlng = new google.maps.LatLng(place.location.latitude, place.location.longitude);
   var newMarker = new google.maps.Marker({
     position: latlng,
     map:map
