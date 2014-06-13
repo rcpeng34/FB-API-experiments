@@ -4,8 +4,9 @@ window.markerArray = [];
 // assume that input array allows access to location in form arr[x].place.location
 var pushLocationArray = function(inputArray) { 
   for (var i = 0; i < inputArray.length; i++) {
-    if (inputArray[i].place) {
+    if (inputArray[i].place && (inputArray[i].message || inputArray[i].images)) {
       // some might not have a place value, so check it first
+      // also check if there is a message or image to display
       window.locationArray.push(inputArray[i].place.location);
       makeMarker(inputArray[i]);
     }
@@ -62,7 +63,7 @@ var makeMarker = function(fbObj) { // this should only come from pushLocationArr
     map:map
   });
   if (fbObj.picture) { // if there's something there, it's a pic not a status
-    var pic = fbObj.images[4];
+    var pic = fbObj.images[3];
     newMarker.info = new google.maps.InfoWindow({
       content: fbObj.place.name + '<br><img src="' + pic.source + '" width="' + pic.width*0.5 + '" height="' + pic.height*0.5 + '"></img>'
     });
