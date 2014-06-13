@@ -64,11 +64,11 @@ var makeMarker = function(fbObj) { // this should only come from pushLocationArr
   });
   if (fbObj.picture) { // if there's something there, it's a pic not a status
     newMarker.info = new google.maps.InfoWindow({
-      content: fbObj.place.name + '\n' + fbObj.source
+      content: fbObj.place.name + '<br>' + fbObj.source
     });
   } else { // assume it's a status
     newMarker.info = new google.maps.InfoWindow({
-      content: fbObj.place.name + '\n' + fbObj.message
+      content: fbObj.place.name + '<br>' + fbObj.message
     });
   }
   google.maps.event.addListener(newMarker, 'click', function(){
