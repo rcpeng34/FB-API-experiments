@@ -54,17 +54,17 @@ var makeMarker = function(fbObj) { // this should only come from pushLocationArr
     place - same as above
     message - string
   */
-  // console.log(fbObj);
   var place = fbObj.place;
-  console.log(place);
+  console.log(fbObj.images);
   var latlng = new google.maps.LatLng(place.location.latitude, place.location.longitude);
   var newMarker = new google.maps.Marker({
     position: latlng,
     map:map
   });
   if (fbObj.picture) { // if there's something there, it's a pic not a status
+    var pic = fbObj.images[4];
     newMarker.info = new google.maps.InfoWindow({
-      content: fbObj.place.name + '<br>' + fbObj.source
+      content: fbObj.place.name + '<br><img src="' + pic.source + '" width="' + pic.width*0.5 + '" height="' + pic.height*0.5 + '"></img>'
     });
   } else { // assume it's a status
     newMarker.info = new google.maps.InfoWindow({
