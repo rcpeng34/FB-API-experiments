@@ -18,3 +18,7 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/html/index.html');
 });
+
+app.get('/privacypolicy_termsofservice', function(req, res){
+  res.sendfile(__dirname + '/public/html/privacytos.html');
+});
