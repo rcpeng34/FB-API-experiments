@@ -22,3 +22,7 @@ app.get('/', function(req, res) {
 app.get('/privacypolicy_termsofservice', function(req, res){
   res.sendfile(__dirname + '/public/html/privacytos.html');
 });
+
+app.get ('/support', function(req, res){
+  res.sendfile(__dirname + '/public/html/support');
+});
