@@ -24,5 +24,5 @@ app.get('/privacypolicy_termsofservice', function(req, res){
 });
 
 app.get ('/support', function(req, res){
-  res.sendfile(__dirname + '/public/html/support');
+  res.sendfile(__dirname + '/public/html/support.html');
 });
