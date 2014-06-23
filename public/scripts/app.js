@@ -11,8 +11,6 @@ var initialize = function(){
   console.log('complete initialize');
 };
 
-$('document').ready(function(){initialize();});
-
 //require jqcloud for wordcloud
 require(['public/scripts/jqcloud-1.0.4.js', function(){
   console.log('async call complete for jqcloud');
@@ -36,25 +34,27 @@ define(['facebook'], function(){
   });
 });
 
-document.getElementById('searchBar').style.cursor = 'pointer';
-document.getElementById('searchBar').onclick = function() {
-      FB.login(function(response){
-        
-        //require fbstatuscloud
-        require(['public/scripts/fbstatuscloud.js', function(){
-          console.log('async call complete for fbstatuscloud');
-        }]);
+$('document').ready(function(){
+  initialize();
+  document.getElementById('searchBar').style.cursor = 'pointer';
+  document.getElementById('searchBar').onclick = function() {
+        FB.login(function(response){
+          
+          //require fbstatuscloud
+          require(['public/scripts/fbstatuscloud.js', function(){
+            console.log('async call complete for fbstatuscloud');
+          }]);
 
-        //require fbselfieratio
-        require(['public/scripts/fbselfieratio.js', function(){
-          console.log('async call complete for fbselfieratio');
-        }]);
+          //require fbselfieratio
+          require(['public/scripts/fbselfieratio.js', function(){
+            console.log('async call complete for fbselfieratio');
+          }]);
 
-        //require fblocationmap
-        require(['public/scripts/fblocationmap.js', function(){
-          console.log('async call complete for fblocationmap');
-        }]);
-        
-      }, {scope:['user_status', 'user_photos']});
-};
-
+          //require fblocationmap
+          require(['public/scripts/fblocationmap.js', function(){
+            console.log('async call complete for fblocationmap');
+          }]);
+          
+        }, {scope:['user_status', 'user_photos']});
+  };
+});
