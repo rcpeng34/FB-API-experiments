@@ -1,4 +1,3 @@
-console.log('from inside /public/js/app.js');
 
 window.map;
 
@@ -8,7 +7,6 @@ var initialize = function(){
     zoom: 1
   };
   map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
-  console.log('complete initialize');
 };
 
 //require jqcloud for wordcloud

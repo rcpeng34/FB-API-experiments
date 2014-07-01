@@ -11,19 +11,7 @@ var pushLocationArray = function(inputArray) {
       makeMarker(inputArray[i]);
     }
   }
-  console.log('finished pushing to locationArray');
 };
-
-// var initialize = function(){
-//   var mapOptions = {
-//     center: new google.maps.LatLng(0, 0),
-//     zoom: 1
-//   };
-//   map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
-//   console.log('complete initialize');
-// };
-
-// $('document').ready(function(){initialize();});
 
 var plotMarkers = function() {
 // plot all the markers in locationArray as markers on map
@@ -56,7 +44,6 @@ var makeMarker = function(fbObj) { // this should only come from pushLocationArr
     message - string
   */
   var place = fbObj.place;
-  console.log(fbObj.images);
   var latlng = new google.maps.LatLng(place.location.latitude, place.location.longitude);
   var newMarker = new google.maps.Marker({
     position: latlng,

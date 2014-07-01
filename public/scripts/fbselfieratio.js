@@ -2,14 +2,12 @@ window.photoArray = [];
 window.photosByYou = 0;
 window.photosByOthers = 0;
 window.username;
-console.log('made variables');
 
 FB.api('/me/photos?limit=400', function(res){
   window.photoArray.push(res.data);
   // with more time, this is where to begin logic to grab data from pagination
   // note that total photos is only 400 so it's hardcoded for the purpose of the hackathon
   // you can call getNextPage and break when the last item in the array has lengh < the limit in '/me/photos?limit=x'
-  console.log('Completed photo fetch');
 
   // the section below is unnecessary as we're calling the max number of facebook photos, 400
   // in case of pagination, assume window.photoArray is an array of arrays (the pages)
@@ -28,7 +26,6 @@ FB.api('/me/photos?limit=400', function(res){
     }
   }
   
-  console.log('Photographer count is complete');
   // set text for the graph
   $('#selfieText').append(window.photosByOthers + window.photosByYou + ' photos');
   $('#leftBar .barText').append(window.photosByYou + ' selfies');
@@ -61,7 +58,6 @@ var getNextPage = function(nextURL) {
   $.ajax({
     url: res.paging.next, complete: function(res) {
       window.photoArray.push(JSON.parse(res.responseText).data);
-      console.log('page get call returned and pushed');
       return res.paging.next;
     }
   });
