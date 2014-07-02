@@ -1,23 +1,10 @@
-FB Graph API Experinments
+Meh Profile Stats
 =======
 
-Uses node, express, bootstrap
+Fun things you can do with access to Facebook's Graph API.
 
-NOTES
-  App ID currently hardcoded, remember to fix
-  Bower components located in public directory, included as part of git package as azure refuses to run bower install from the deploy script
-  FB api modules can be commented out from app.js
-  Facebook auth done as a popup automatically, should probably set it as an on click
+Ever wonder how many selfie's you've posted? What's your selfie ratio?
+Are you using #yolo too much in your statuses? What's your most commonly used status update word?
+Everyone "loves to travel", it didn't happen IRL if it didn't reach Facebook. Where are your posts from?
 
-RE: Facebook Permissions
-  Once you publicize the app, you have to request facebook to approve your permission requests for users
-  Until they approve it, you will be only approved for basic info: email, public_profile, user_friends
-
-  In the meantime, new users must be registered as developers
-    Once registered, you must add them to the app and they must accept the request
-
-
-To Do:
-  build map display of these locations by longitude latitude
-  clean words in status cloud by removing grammar
-  add another ratio of photos you took vs/ other took in selfie ratio
+Check out meh profile stats and find out at fb.richardpeng.io
